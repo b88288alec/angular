@@ -1,0 +1,23 @@
+:host button {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+:host button:hover {
+  background-color: black;
+  color: white;
+}
+
+:host button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}

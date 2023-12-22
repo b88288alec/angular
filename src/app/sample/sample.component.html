@@ -1,0 +1,60 @@
+<div class="s-p-content">
+  <div [style.font-size.px]="fontSizePx">
+    <p>我是父元件</p>
+    <app-two-way style="float: right" [(size)]="fontSizePx"></app-two-way>
+    <label>在父元件的資料(By Input)</label>
+    <input [(ngModel)]="passToChild"/>
+    <br/>
+    <label>在父元件的資料(By Setter)</label>
+    <input [(ngModel)]="passToChildBySetter"/>
+    <br/>
+    <label>從子元件接收的資料</label>
+    <textarea [value]="receiveFromChild" disabled rows="3"></textarea>
+    <br/>
+
+    <br/>
+    <button (click)="childComponent.toggleOpen()">打開(By Template variable)</button>
+    <button (click)="openS2()">打開(By ViewChild)</button>
+    <br/>
+
+    <br/>
+    <button (click)="fetch()">下載</button>
+    <div *ngIf="selectedPerson" style="width: 30%">
+      <p>選到誰</p>
+      <p>姓名：{{selectedPerson?.name}}</p>
+      <p>生日：{{selectedPerson?.birthday | date:"yyyy/MM//dd" }}</p>
+      <p>年齡：{{selectedPerson?.age}}</p>
+    </div>
+  </div>
+  <hr/>
+  <app-sample-child #childComponent [fromParent]="passToChild"
+                    [fromParentBySetter]="passToChildBySetter"
+                    (triggerEvent)="receiveEvent($event)"></app-sample-child>
+</div>
+<div>
+  <p>資料單向傳遞</p>
+  <ul>
+    <li>在 ts 裡用 &#64;Input 宣告變數</li>
+    <li>在 html 裡用 [屬性名]="要傳的變數名" 傳遞資料</li>
+  </ul>
+  <img src="../../assets/input.svg" width="400px"/>
+  <img src="../../assets/input-diagram-target-source.svg" width="400px"/>
+</div>
+<div>
+  <p>子元件傳資料用事件</p>
+  <ul>
+    <li>在 ts 裡用 &#64;Output 宣告事件</li>
+    <li>在 html 裡用 (事件名)="父元件函式($event)" 傳遞資料</li>
+  </ul>
+  <img src="../../assets/output.svg" width="400px"/>
+  <img src="../../assets/input-output-diagram.svg" width="400px"/>
+</div>
+<div>
+  <p>資料雙向綁定</p>
+  <ul>
+    <li>在 ts 裡用 &#64;Input 宣告變數</li>
+    <li>在 ts 裡用 &#64;Output 宣告事件，事件名稱必須為 『變數名』Change</li>
+    <li>在 html 裡用 [(變數名)]="要傳的變數名"</li>
+    <li>針對 HTML 表單元素，可用內建的 ngModel，不需自己實作</li>
+  </ul>
+</div>

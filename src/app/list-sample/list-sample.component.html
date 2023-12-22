@@ -1,0 +1,29 @@
+<div class="s-l-content">
+  <p>我是第二個子元件</p>
+  <p>我要順便展示怎麼用 Service 和 Rxjs 來誇元件溝通</p>
+  <table>
+    <thead>
+    <tr>
+      <th>姓名</th>
+      <th>生日</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="data.length === 0">
+      <tr>
+        <td colspan="3">沒有資料</td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="data.length > 0">
+      <tr *ngFor="let item of data">
+        <td>{{ item.name }}</td>
+        <td>{{ item.birthday | date:"yyyy/MM/dd" }}</td>
+        <td>
+          <button (click)="select(item)">選我</button>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

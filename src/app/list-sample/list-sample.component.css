@@ -1,0 +1,16 @@
+.s-l-content {
+  border: #31d4e3 solid 1px;
+  width: 90%;
+  padding: 5px;
+}
+
+:host table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+:host table, th, td {
+  border: #aaaaaa solid 1px;
+  padding: 5px;
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+.s-c-content {
+  border: brown solid 1px;
+  width: 90%;
+  padding: 5px;
+}
+
+.s-area {
+  border: green solid 1px;
+  width: 70%;
+  margin: 10px;
+}
+
+.s2-area {
+  border: blue solid 1px;
+  width: 70%;
+  margin: 10px;
+}

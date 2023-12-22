@@ -1,0 +1,22 @@
+<div class="s-c-content">
+  <p>我是子元件</p>
+  <p>從父元件來的資料(By Input)：{{fromParent}}</p>
+  <p>從父元件來的資料(By Setter)：{{fromParentBySetter}}</p>
+
+  <textarea [(ngModel)]="inputVal" rows="5"></textarea>
+  <button (click)="fireEvent()">發送</button>
+  <br/>
+
+  <div class="s-area" *ngIf="isOpen">
+    <p>Open By Template variable</p>
+    <p>我是隱藏區塊，要呼叫 toggleOpen 的方法才能打開</p>
+  </div>
+
+  <div class="s2-area" *ngIf="isS2Open">
+    <p>Open By ViewChild</p>
+    <p>我是另一個隱藏區塊，要在父元件用 ViewChild 才能打開</p>
+  </div>
+  <br/>
+  <hr/>
+  <app-list-sample></app-list-sample>
+</div>
