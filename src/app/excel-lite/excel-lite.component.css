@@ -1,0 +1,77 @@
+.ex-container {
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.ex-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-width: 0;
+  cursor: cell;
+  margin: 0;
+  max-height: none;
+  max-width: none;
+  outline-width: 0;
+  table-layout: fixed;
+  width: 0;
+}
+
+.ex-table th {
+  border-collapse: collapse;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-left-width: 0;
+  border-right: 1px solid #ccc;
+  border-top-width: 0;
+}
+
+.ex-table > tbody > tr > td.cell {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-left-width: 0;
+  border-right: 1px solid #ccc;
+  border-top-width: 0;
+  empty-cells: show;
+  height: 22px;
+  line-height: 21px;
+  outline: none 0;
+  overflow: hidden;
+  padding: 0 4px;
+  vertical-align: top;
+  white-space: pre-wrap;
+}
+
+.ex-current-selected div {
+  position: absolute;
+  background-color: rgb(75, 137, 255);
+}
+
+.ex-cell-edit {
+  display: none;
+}
+
+.ex-cell-edit.edit {
+  display: block;
+}
+
+.ex-cell-edit textarea {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  resize: none;
+  font-size: inherit;
+  line-height: 20px;
+  font-family: inherit;
+  color: inherit;
+  overflow: hidden;
+  text-align: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

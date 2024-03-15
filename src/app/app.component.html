@@ -88,11 +88,8 @@
   }
 </style>
 
-<main class="main">
-  <div class="content">
-    <app-sample></app-sample>
-  </div>
-</main>
+<a routerLink="sample">sample</a>
+<a routerLink="excel">excel</a>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -102,5 +99,8 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
-<router-outlet></router-outlet>
+<main class="main">
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</main>

@@ -1,0 +1,42 @@
+<div style="width: 70vw;height: 90vh">
+  <div #exContainer class="ex-container">
+    <table class="ex-table">
+      <colgroup>
+        <col style="width: 50px">
+        <col *ngFor="let item of data[0]; index as i" style="width: 100px;">
+      </colgroup>
+      <thead>
+      <tr>
+        <th></th>
+        <th *ngFor="let item of data[0]; index as i">{{ i + 1 }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of data; index as i">
+        <th>{{ i + 1 }}</th>
+        <td class="cell" *ngFor="let item of row; index as j"
+            (click)="clickCell($event.target, i, j)" (dblclick)="editCell()">{{ item.displayValue }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="ex-current-selected">
+      <div class="ex-cell-edit" [ngClass]="{ 'edit': isEditing }"
+           [ngStyle]="{ 'left.px': selectedCell?.left, 'top.px': selectedCell?.top, 'height.px': (selectedCell) ? selectedCell.clientRect.height : 0 }">
+        <textarea style="width: auto" autofocus #editTextArea
+                  [ngStyle]="{ 'height.px': (selectedCell) ? selectedCell.clientRect.height : 0 }"
+                  [(ngModel)]="selectedCell.value.value" (blur)="isEditing = false"></textarea>
+      </div>
+      <div style="height: 2px;"
+           [ngStyle]="{ 'left.px': selectedCell.left, 'top.px': selectedCell.top - 1, 'width.px': (isEditing) ? editTextArea.getBoundingClientRect().width : selectedCell.clientRect.width }"></div>
+      <div style="width: 2px;"
+           [ngStyle]="{ 'left.px': (isEditing) ?  editTextArea.getBoundingClientRect().left - exContainer.getBoundingClientRect().left + editTextArea.getBoundingClientRect().width : selectedCell.left + 100 - 1, 'top.px': selectedCell?.top, 'height.px': (selectedCell) ? selectedCell.clientRect.height : 0 }"></div>
+      <div style="height: 2px;"
+           [ngStyle]="{ 'left.px': selectedCell.left, 'top.px': selectedCell.top + selectedCell.clientRect.height - 1, 'width.px': (isEditing) ? editTextArea.getBoundingClientRect().width : selectedCell.clientRect.width }"></div>
+      <div style="width: 2px;"
+           [ngStyle]="{ 'left.px': (selectedCell) ? selectedCell.left - 1 : 0, 'top.px': selectedCell.top, 'height.px': (selectedCell) ? selectedCell.clientRect.height : 0 }"></div>
+      <div style="width: 6px;height: 6px;border: 1px solid white;"
+           [ngStyle]="{ 'left.px': (isEditing) ?  editTextArea.getBoundingClientRect().left - exContainer.getBoundingClientRect().left + editTextArea.getBoundingClientRect().width - 4 : selectedCell.left + 100 - 4, 'top.px': (selectedCell) ? selectedCell.top + selectedCell.clientRect.height - 4 : 0 }"></div>
+    </div>
+  </div>
+</div>
