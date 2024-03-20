@@ -1,0 +1,34 @@
+<div style="width: 70vw;height: 90vh">
+  <div style="border: 1px solid #31d4e3;width: 800px;">
+    <p>鎖定財報日期</p>
+    <input type="checkbox" name="2021-12-31" [value]="'2021-12-31'" [checked]="lockedTime.has('2021-12-31')" (change)="toggleLockTime($event)">2021-12-31
+    <input type="checkbox" name="2022-12-31" [value]="'2022-12-31'" [checked]="lockedTime.has('2022-12-31')" (change)="toggleLockTime($event)">2022-12-31
+    <input type="checkbox" name="2023-12-31" [value]="'2023-12-31'" [checked]="lockedTime.has('2023-12-31')" (change)="toggleLockTime($event)">2023-12-31
+  </div>
+  <hr/>
+  <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+  <ag-grid-angular
+    style="width: 800px; height: 300px;"
+    [class]="themeClass"
+    [undoRedoCellEditing]="true"
+    [enableRangeSelection]="true"
+    [tooltipShowDelay]="0"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [getContextMenuItems]="getContextMenuItems()"
+    [rowClassRules]="rowClassRules"
+  >
+  </ag-grid-angular>
+  <hr/>
+  <div *ngIf="focusedCellData" style="border: 1px solid #31d4e3;width: 800px;">
+    <p>新增/編輯備註</p>
+    <label>會計科目</label>
+    <input [value]="focusedCellData.accountName" disabled />
+    <br/>
+    <label>財報時間</label>
+    <input [value]="focusedCellData.time" disabled />
+    <br/>
+    <label>備註</label>
+    <textarea [(ngModel)]="focusedCellData.remark"></textarea>
+  </div>
+</div>

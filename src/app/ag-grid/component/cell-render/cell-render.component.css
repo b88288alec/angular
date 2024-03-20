@@ -1,0 +1,16 @@
+.cell {
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  top: -5px;
+  right: -22px;
+  width: 0;
+  height: 0;
+  border: 5px solid red;
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotateZ(135deg);
+}
